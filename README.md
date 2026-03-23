@@ -1,70 +1,121 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Expense Reimbursement Management
+System
+Business Objective
+Design and develop a web-based application that enables employees to:
+Manage reimbursement requests
+Track expense submissions
+Monitor approval status
+Calculate total claimed and approved amounts
+The system should provide a centralized dashboard for reimbursement insights.
+System Overview
+This application allows an Employee to create and manage one or more Reimbursement
+Requests. Each request belongs to a specific Category.
+The system performs financial tracking to determine:
+Total requested amount
+Total approved amount
+Total pending amount
+Reimbursement summary
+Entities & Data Model
+Employee
+Represents the system user who submits reimbursement
+requests.
+Reimbursement
+Represents a financial claim submitted by an employee.
+Category
+Represents the type of expense (Travel, Food, Office, etc.).
+Entity Associations
+Employee → Reimbursement
+One Employee can submit multiple Reimbursement
+Requests. Category → Reimbursement
+One Category can contain multiple Reimbursement
+Requests.
+Core Functional Requirements
+Employee Management
+Create employee
+Update employee details
+View employee list
+Delete employee
+Category Management
+Create category
+Update category
+View categories
+Delete category
+Reimbursement Management
+Create reimbursement request
+Update reimbursement request
+View reimbursements
+Delete reimbursement
+Financial Calculations
+The system must automatically compute:
+Total Requested Amount
+Sum of all reimbursement amounts
+Total Approved Amount
+Sum of all approved reimbursements
+Total Pending Amount
+Requested Amount − Approved Amount
+Reimbursement Summary
+Total requested amount
+Total approved amount
+Total pending amount
+Category-wise expense performance
+Application Screens / Routes
+Authentication (Optional Assumption)
+/login
+Dashboard
+Route: /dashboard
+Purpose:
+Display total requested amount
+Show approved amount summary
+Show pending reimbursement summary
+Employee Management
+Route: /employees
+Features:
+List employees
+Add employee
+Edit employee
+Delete employee
+Category Management
+Route: /categories
+Features:
+List categories
+Create new category
+Edit category
+Delete category
+Reimbursement Management
+Route: /reimbursements
+Features:
+View reimbursements
+Create reimbursement request
+Edit reimbursement
+Delete reimbursement
+Technical Implementation Requirements
+Backend (Spring Boot)
+RESTful APIs
+Layered architecture:
+Controller
+Service
+Repository
+JPA relationships
+Exception handling
+Validation
+Unit tests (JUnit + Mockito)
+Code coverage recommended
+Frontend (React)
+React components
+Redux for state management
+React Router for navigation
+Axios / Fetch for API calls
+Basic styling (CSS or Bootstrap)
+Database (MySQL)
+Proper foreign key constraints
+Normalized structure
+Deployment
+Frontend built using npm run build
+Backend deployed on Apache Tomcat
+Database connected via Spring Boot configuration
+Assumptions
+Approval workflow can be basic.
+Currency is single (e.g., INR or USD).
+No external finance API integration
+required. Authentication can be basic or
+optional.
